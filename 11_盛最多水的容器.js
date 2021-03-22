@@ -6,25 +6,33 @@
 
 // 输入：[1,8,6,2,5,4,8,3,7]
 // 输出：49
+
+// 思路
+// 设置start=0,end=length-1两个索引
+// 保留height[start]和height[end]中长的那根 并且获取面积并和max比较 若面积大于max 则赋值给他
+// 直到start==end时终止 
+
 /**
  * @param {number[]} height
  * @return {number}
  */
 var maxArea = function (height) {
+	// 起点索引
 	let start = 0;
+	// 终点索引
 	let end = height.length - 1;
+	// 最大值
 	let max = 0;
 	while (end != start) {
-		let area = Math.min(height[start], height[end]) * (end - start);
-		if (area >= max) {
-			max = area;
-			if (area == max) {
-				// if()
-			}
+		// 面积
+		max=Math.max(Math.min(height[start], height[end]) * (end - start),max)
+		// 若终点高度大于起点 则起点后移
+		if (height[end] >= height[start]) {
+			start++;
 		} else {
+			// 否则 终点后移
 			end--;
 		}
-		console.log(start, end);
 	}
 	return max;
 };
