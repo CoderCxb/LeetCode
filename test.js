@@ -1,1 +1,1 @@
-function test() {}
+console.log(1>undefined);
