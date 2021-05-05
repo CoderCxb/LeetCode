@@ -1,3 +1,3 @@
-let str = '11112fsafsafsa';
-console.log(str.slice(0, 5));
-console.log(str);
+let arr = [1, 2, 3];
+arr.splice(1, 1);
+console.log(arr);
