@@ -17,11 +17,13 @@ var reverseList = function (head) {
 	if (head == null || head.next == null) {
 		return head;
 	}
-	// 2. 递归并返回结果 5,4,3,2,1
+	// 2. 递归并返回结果,last一直指向最后一个节点
 	let last = reverseList(head.next);
-  console.log(last);
+	// 3. 调换两个节点的位置
 	head.next.next = head;
+	// 4. 清除head.next, 不然会出现循环指向
 	head.next = null;
+	// 5. 返回结果
 	return last;
 };
 
@@ -31,4 +33,4 @@ l.next.next = new ListNode(3);
 l.next.next.next = new ListNode(4);
 l.next.next.next.next = new ListNode(5);
 
-console.log(reverseList(null));
+console.log(reverseList(l));
