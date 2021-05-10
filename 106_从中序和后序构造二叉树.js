@@ -29,8 +29,8 @@ function TreeNode(val, left, right) {
 var buildTree = function (inorder, postorder) {
 	// 当中序数组为空时 返回null (上层是叶子节点)
 	if (inorder.length === 0) return;
-	// 获取前序数组的第一个元素 并删除
-	// 前序数组的第一个元素 代表跟元素 通过递归 就可以对应到每个子树的根节点
+	// 获取后序数组的最后一个元素 并删除
+	// 后序数组的最后一个元素 代表根元素 通过递归 就可以对应到每个子树的根节点
 	// 删除是为了让节点不断的往下移动
 	let mid = postorder.splice(postorder.length - 1)[0];
 	// 获取中序数组的根节点的index 将其分成左右两部分
