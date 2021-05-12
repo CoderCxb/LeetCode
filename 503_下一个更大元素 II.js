@@ -15,24 +15,25 @@
  */
 var nextGreaterElement = function (nums) {
 	let map = {};
-	// 2. 队列
 	let queue = [];
-	let dNums = [...nums, ...nums];
-	// 3. 遍历
-	for (let index = 0; index < dNums.length; index++) {
-		let num = dNums[index];
+	let result = [];
+	for (let index = 0; index < nums.length; index++) {
+		let num = nums[index];
 		// 4. 当队列不为空 并且 num>队列的最后一个元素时
-		while (queue.length !== 0 && num > queue[queue.length - 1]) {
+		while (queue.length !== 0 && num > nums[queue[queue.length - 1]]) {
 			// 5. 设置map[队列最后一个元素]=num 即 设置队列最后一个元素的下一个更大值
 			// 6. 删除队列的最后一个元素
-			map[queue.pop()] = num;
+			// map[queue.pop()] = num;
+			result[queue.pop()] = num;
 		}
 		// 7. while结束 要么数组为空 要么这个num<队列的最后一个值 将num添加到队列
-		queue.push(num);
+		queue.push(index);
 	}
+	console.log(map);
+	console.log(result);
 	// 8. 返回结果
 	return nums.map((num) => (map[num] ? map[num] : -1));
 };
 
 console.log(nextGreaterElement([1, 2, 1]));
-console.log(nextGreaterElement([5, 4, 3, 2, 1]));
+console.log(nextGreaterElement([100, 1, 11, 1, 120, 111, 123, 1, -1, -100]));
