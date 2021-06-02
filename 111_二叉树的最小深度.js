@@ -52,6 +52,27 @@ var minDepth = function (root) {
 	return min;
 };
 
+// 通过递归方式进行深度优先遍历
+// var minDepth = function (root) {
+//   if(!root)return null;
+//   let minDepth=Number.MAX_SAFE_INTEGER;
+//   function getDepth(root,level){
+//     if(root.left){
+//       getDepth(root.left,level+1);
+
+//     }
+//     if(root.right){
+//       getDepth(root.right,level+1);
+//     }
+//     if(!root.left&&!root.right){
+//       minDepth=Math.min(minDepth,level)
+//     }
+//   }
+//   let deep=1;
+//   getDepth(root,deep);
+//   return minDepth;
+// };
+
 let root = new TreeNode(
 	1,
 	new TreeNode(

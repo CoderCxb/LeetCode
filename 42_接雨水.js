@@ -21,10 +21,9 @@ var trap = function (height) {
 		left = 0,
 		right = len - 1,
 		lMax = height[0],
-		rMax = height[len - 1];
+		rMax = height[right];
 	// 3. 判断条件
 	while (left <= right) {
-		console.log(left, right, lMax, rMax, result);
 		// 4. 需要在计算result前先计算最大值 否则计算结果会错
 		// 4.1 左侧最大值
 		lMax = Math.max(lMax, height[left]);
