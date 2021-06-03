@@ -19,7 +19,27 @@ function TreeNode(val) {
  * @return {TreeNode}
  */
 var lowestCommonAncestor = function(root, p, q) {
-  
+    // 1. 初始化祖先元素
+    let ans=null;
+    // 2. 递归函数
+    const dfs=(root, p, q)=>{
+        // 3. root为null 返回false
+        if(!root) return false;
+        const lson = dfs(root.left, p, q);
+        const rson = dfs(root.right, p, q);
+        // 4. 处理代码放在这是为了使用后序遍历
+        // 4.1 lson&&rson p和q在root的左右子节点下 
+        // 4.2 (root==p||root==q)&&(lson||rson) 说明p和q其中一个和root相等
+        if ((lson && rson) || ((root.val === p.val || root.val === q.val) && (lson || rson))) {
+            ans = root;
+        } 
+        // 5. 返回值 子节点返回true或者 自身等于p或q
+        return lson || rson || (root.val === p.val || root.val === q.val);
+    }
+    // 6. 进行递归
+    dfs(root,p,q)
+    // 7. 返回结果
+    return ans;
 };
 
 let p=new TreeNode(2);
@@ -27,6 +47,6 @@ let q=new TreeNode(3);
 let root = new TreeNode(1);
 
 root.left=p;
-root.right=q;
+p.left=q;
 
 console.log(lowestCommonAncestor(root,p,q));
