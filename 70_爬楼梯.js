@@ -19,8 +19,22 @@
 // 2.  1 阶 + 2 阶
 // 3.  2 阶 + 1 阶
 
+// 思路
+
 /**
  * @param {number} n
  * @return {number}
  */
-var climbStairs = function (n) {};
+var climbStairs = function (n) {
+	let first = 1,
+		next = 1;
+	function fib(n, first, second) {
+		if (n === 0) return first;
+		else {
+			return fib(n - 1, second, first + second);
+		}
+	}
+	return fib(n, first, next);
+};
+
+console.log(climbStairs(5));
