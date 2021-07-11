@@ -8,6 +8,8 @@
 // 输入：strs = ["flower","flow","flight"]
 // 输出："fl"
 
+// 先找到第一个和第二个的公共前缀 然后使用公共前缀和下一个字符串找公共前缀
+
 /**
  * @param {string[]} strs
  * @return {string}

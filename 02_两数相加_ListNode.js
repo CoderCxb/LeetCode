@@ -8,7 +8,7 @@
 
 // 你可以假设除了数字 0 之外，这两个数都不会以 0 开头。
 
-
+  ``
 function ListNode(val, next) {
   this.val = (val===undefined ? 0 : val)
   this.next = (next===undefined ? null : next)

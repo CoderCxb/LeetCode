@@ -17,4 +17,5 @@ var reverse = function (x) {
 	return result;
 };
 
+console.log(reverse(1212123));
 console.log(reverse(1534236469));

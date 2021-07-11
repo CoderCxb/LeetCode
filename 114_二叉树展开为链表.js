@@ -33,6 +33,7 @@ var flatten = function (root) {
 	root.right = left;
 	let p = root;
 	// 6. 重要:将right拼接到原本的left前,需要将root遍历到尾部,否则会发生覆盖
+	// 即 将原本的right拼接到left的尾部
 	while (p.right !== null) {
 		p = p.right;
 	}

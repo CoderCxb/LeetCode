@@ -29,8 +29,7 @@ var maxProfit = function (prices) {
 			lowestPrice = price;
 		}
 		// 5. 计算利润 如果当天的利润大于利润 则更改利润
-		maxProfit =
-			price - lowestPrice > maxProfit ? price - lowestPrice : maxProfit;
+		maxProfit =Math.max(price - lowestPrice , maxProfit);
 	}
 	// 6. 返回利润
 	return maxProfit > 0 ? maxProfit : 0;

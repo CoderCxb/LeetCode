@@ -57,7 +57,7 @@ var levelOrder = function (root) {
 			childArr.shift();
 		}
 		// 12. 不断push 得到结果,push时(102) 从上往下,unshift时 从下往上
-		result.push(values);
+		result.unshift(values);
 	}
 	return result;
 };

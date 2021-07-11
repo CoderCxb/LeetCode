@@ -26,7 +26,7 @@ var myAtoi = function (s) {
 	let numStrs='0123456789';
 	// 3.去除空白
 	s = s.trim();
-	// 4. -开头 打个负数的标记
+	// 4. -开头 打个负数的标记 positive为true 正数  false负数
 	if(s.startsWith('-'))positive=false;
 	// 5. - + 0 开头时
 	if(s.startsWith('0')||s.startsWith('-')||s.startsWith('+')){
@@ -60,4 +60,4 @@ var myAtoi = function (s) {
 	return resultNum!=0?resultNum:0;
 };
 
-console.log(myAtoi('aa'));
+console.log(myAtoi('-140  a'));

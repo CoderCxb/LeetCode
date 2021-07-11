@@ -16,7 +16,7 @@ function TreeNode(val, left, right) {
 var isSameTree = function (t1, t2) {
 	if (t1 == t2) {
 		return true;
-	} else if ((t1 == null || t2 == null) && t1 != t2) {
+	} else if (t1 == null || t2 == null) {
 		return false;
 	} else if (t1.val !== t2.val) {
 		return false;

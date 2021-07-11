@@ -29,12 +29,12 @@ var nextGreaterElement = function (nums1, nums2) {
 	// 1. map用于存储 nums2中每一个数字以及它的下一个更大数字
 	// 使用map或者hash存储 主要是为了时间复杂度下降 不需要再遍历获取
 	let map = {};
-	// 2. 队列
+	// 2. 队列 存储还没找到最大值的num
 	let queue = [];
 	// 3. 遍历
 	for (let index = 0; index < nums2.length; index++) {
 		let num = nums2[index];
-		// 4. 当队列不为空 并且 num>队列的最后一个元素时
+		// 4. 当队列不为空(里面的元素还没有找到后续更大值) 并且 num>队列的最后一个元素时 
 		while (queue.length !== 0 && num > queue[queue.length - 1]) {
 			// 5. 设置map[队列最后一个元素]=num 即 设置队列最后一个元素的下一个更大值
 			// 6. 删除队列的最后一个元素

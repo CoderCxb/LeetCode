@@ -16,47 +16,47 @@
  * @return {number}
  */
 // 做法一:暴力破解 
-var longestConsecutive = function(nums) {
-  if(nums.length===0) return 0;
-  let max=0;
-  let start=0;
-  // 使用reduce比较简单 但是性能和内存稍微会差一点 
-  Array.from(new Set(nums)).sort((a,b)=>a-b).reduce((pre,next,index)=>{
-    if(pre!==next){
-      if(pre+1===next){
-        max=Math.max(index-start,max)
-      }else{
-        start=index
-      }
-    }else{
-      start+=1;
-    }
-    return next;
-  });
-  return max+1;
-};
+// var longestConsecutive = function(nums) {
+//   if(nums.length===0) return 0;
+//   let max=0;
+//   let start=0;
+//   // 使用reduce比较简单 但是性能和内存稍微会差一点 
+//   Array.from(new Set(nums)).sort((a,b)=>a-b).reduce((pre,next,index)=>{
+//     if(pre!==next){
+//       if(pre+1===next){
+//         max=Math.max(index-start,max)
+//       }else{
+//         start=index
+//       }
+//     }else{
+//       start+=1;
+//     }
+//     return next;
+//   });
+//   return max+1;
+// };
 
 // 方法二 使用set查找
-// var longestConsecutive = function(nums) {
-//   let numsSet=new Set();
-//   for (let index = 0; index < nums.length; index++) {
-//     numsSet.add(nums[index]);
-//   }
-//   let maxLen=0;
-//   for (const item of numsSet) {
-//     let add=1,reduce=1,len=1;
-//     while(numsSet.has(item+add)){
-//       numsSet.delete(item+add++)
-//       len++;
-//     }
-//     while(numsSet.has(item-reduce)){
-//       numsSet.delete(item-reduce++)
-//       len++;
-//     }
-//     maxLen=Math.max(len,maxLen)
-//   }
-//   return maxLen;
-// };
+var longestConsecutive = function(nums) {
+  let numsSet=new Set();
+  for (let index = 0; index < nums.length; index++) {
+    numsSet.add(nums[index]);
+  }
+  let maxLen=0;
+  for (const item of numsSet) {
+    let add=1,reduce=1,len=1;
+    while(numsSet.has(item+add)){
+      numsSet.delete(item+add++)
+      len++;
+    }
+    while(numsSet.has(item-reduce)){
+      numsSet.delete(item-reduce++)
+      len++;
+    }
+    maxLen=Math.max(len,maxLen)
+  }
+  return maxLen;
+};
 
 // console.log(longestConsecutive([1,2,0,1]));
 // console.log(longestConsecutive([100,4,200,1,3,2]));

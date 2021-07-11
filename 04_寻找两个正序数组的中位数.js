@@ -40,4 +40,4 @@ var findMedianSortedArrays = function(nums1, nums2) {
   return result/(odd?2:1);
 };
 
-console.log(findMedianSortedArrays([1,1,1,1,1],[]));
+console.log(findMedianSortedArrays([1,2,3,4],[]));

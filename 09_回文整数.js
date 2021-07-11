@@ -18,7 +18,7 @@
   let start=0,end=xStr.length-1;
   while(true){
     if(xStr[end]!==xStr[start]||end===start||(xStr.length%2===0&&start+1===end)){
-      if(xStr[end]!==xStr[start])result=false;
+      if(xStr[end]!==xStr[start]) return false;
       break;
     }
     start++;
@@ -28,4 +28,4 @@
 };
 
 
-console.log(isPalindrome(121));
+console.log(isPalindrome(1212));

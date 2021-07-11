@@ -38,7 +38,6 @@ var findAnagrams = function (s, p) {
 		right++;
 		if (need[c] !== undefined) {
 			window[c]++;
-			console.log(need[c], window[c]);
 			if (need[c] === window[c]) {
 				charOkCount++;
 			}
