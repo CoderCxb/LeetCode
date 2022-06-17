@@ -20,32 +20,32 @@
  * @param {string} s
  * @return {number}
  */
-var longestValidParentheses = function(s) {
+var longestValidParentheses = function (s) {
   // 1. 最大值记录
-  let max=0;
+  let max = 0;
   // 2. 初始栈(存储的是index) -1 作用如下
-  // 是为了让从头开始匹配的字符串有效 同时也是因为数组的index会小1的问题s 
+  // 是为了让从头开始匹配的字符串有效 同时也是因为数组的index会小1的问题
   // 保证stack永不为空
-  const stack=[-1];
+  const stack = [-1];
   // 3. 遍历
-  for(let i=0;i<s.length;i++){
-    let c=s[i];
-    if(c==='('){
+  for (let i = 0; i < s.length; i++) {
+    let c = s[i];
+    if (c === "(") {
       // 4. 入栈
-      stack.push(i)
-    }else{
+      stack.push(i);
+    } else {
       // 5. 出栈
       stack.pop();
-      // 6. 当c为)时 i-stack的最后一个元素 就是当前匹配的有效
-      if(stack.length>0){
-        max=Math.max(i-stack[stack.length-1],max)
-      // 7. 当栈空了以后
-      }else{
+      // 6. 当c为)是i-stack的最后一个元素 就是当前匹配的有效
+      if (stack.length > 0) {
+        max = Math.max(i - stack[stack.length - 1], max);
+        // 7. 当栈空了以后
+      } else {
         // 8.下标入栈
-        stack.push(i)
+        stack.push(i);
       }
     }
   }
   return max;
 };
-console.log(longestValidParentheses('()()'));
+console.log(longestValidParentheses("()()"));

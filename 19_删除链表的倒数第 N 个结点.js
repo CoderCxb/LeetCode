@@ -8,8 +8,8 @@
 // 输出：[1,2,3,5]
 
 function ListNode(val, next) {
-	this.val = val === undefined ? 0 : val;
-	this.next = next === undefined ? null : next;
+  this.val = val === undefined ? 0 : val;
+  this.next = next === undefined ? null : next;
 }
 
 // 1. 思路1 : 结合数组 将数组和链表绑定 然后操作数组(索引) 然后跳过要删除的节点即可
@@ -22,21 +22,21 @@ function ListNode(val, next) {
  * @return {ListNode|null}
  */
 var removeNthFromEnd = function (head, n) {
-	// 1.将每一个节点添加到数组中
-	let nodeList = [head];
-	while (head.next) {
-		nodeList.push(head.next);
-		head = head.next;
-	}
-	// 2. 删除第一个节点 并且只有一个节点
-	if (nodeList.length === n && n === 1) return null;
-	// 3. 删除第一个节点 多个节点
-	if (nodeList.length === n && n !== 1) return nodeList[1];
-	// 4. 其他情况时  直接通过操作数组存储的节点即可
-	if (nodeList[nodeList.length - n]) {
-		nodeList[nodeList.length - n - 1].next = nodeList[nodeList.length - n].next;
-	}
-	return nodeList[0];
+  // 1.将每一个节点添加到数组中
+  let nodeList = [head];
+  while (head.next) {
+    nodeList.push(head.next);
+    head = head.next;
+  }
+  // 2. 删除第一个节点 并且只有一个节点
+  if (nodeList.length === n && n === 1) return null;
+  // 3. 删除第一个节点 多个节点
+  if (nodeList.length === n && n !== 1) return nodeList[1];
+  // 4. 其他情况时  直接通过操作数组存储的节点即可
+  if (nodeList[nodeList.length - n]) {
+    nodeList[nodeList.length - n - 1].next = nodeList[nodeList.length - n].next;
+  }
+  return nodeList[0];
 };
 
 /**

@@ -27,41 +27,41 @@
  * @return {number} 转换后的字符
  */
 var romanToInt = function (s) {
-	let sum = 0;
-	let romanMap = {
-		I: 1,
-		IV: 4,
-		IX: 9,
-		XL: 40,
-		XC: 90,
-		CD: 400,
-		CM: 900,
-		V: 5,
-		X: 10,
-		L: 50,
-		C: 100,
-		D: 500,
-		M: 1000,
-	};
-	let i = 0;
-	let prefix = ['I', 'X', 'C'];
-	for (; i < s.length; i++) {
-		if (prefix.includes(s[i]) && romanMap[s[i]] < romanMap[s[i + 1]]) {
-			if (s[i + 1]) {
-				if (s[i] !== s[i + 1]) {
-					sum += romanMap[s[i] + s[i + 1]];
-				} else {
-					sum += 2 * romanMap[s[i]];
-				}
-			} else {
-				sum += romanMap[s[i]];
-			}
-			i++;
-		} else {
-			sum += romanMap[s[i]];
-		}
-	}
-	return sum;
+  let sum = 0;
+  let romanMap = {
+    I: 1,
+    IV: 4,
+    IX: 9,
+    XL: 40,
+    XC: 90,
+    CD: 400,
+    CM: 900,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+  let i = 0;
+  let prefix = ["I", "X", "C"];
+  for (; i < s.length; i++) {
+    if (prefix.includes(s[i]) && romanMap[s[i]] < romanMap[s[i + 1]]) {
+      if (s[i + 1]) {
+        if (s[i] !== s[i + 1]) {
+          sum += romanMap[s[i] + s[i + 1]];
+        } else {
+          sum += 2 * romanMap[s[i]];
+        }
+      } else {
+        sum += romanMap[s[i]];
+      }
+      i++;
+    } else {
+      sum += romanMap[s[i]];
+    }
+  }
+  return sum;
 };
 
-console.log(romanToInt('IX'));
+console.log(romanToInt("IX"));

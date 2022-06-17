@@ -11,10 +11,10 @@
  * @return {number} 返回反转后的整数
  */
 var reverse = function (x) {
-	let result =
-		+[...x.toString().replace('-', '')].reverse().join('') * (x >= 0 ? 1 : -1);
-	if (result > 2 ** 31 - 1 || result < (-2) ** 31) return 0;
-	return result;
+  let result =
+    +[...x.toString().replace("-", "")].reverse().join("") * (x >= 0 ? 1 : -1);
+  if (result > 2 ** 31 - 1 || result < (-2) ** 31) return 0;
+  return result;
 };
 
 console.log(reverse(1212123));

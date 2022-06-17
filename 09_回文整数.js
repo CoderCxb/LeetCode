@@ -3,7 +3,6 @@
 
 // 回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是。
 
-
 // 输入：-121      0      121
 // 输出：false    true    true
 
@@ -11,14 +10,19 @@
  * @param {number} x
  * @return {boolean}
  */
- var isPalindrome = function(x) {
-  let result=true;
-  let xStr=x.toString();
-  if(x<0) return false;
-  let start=0,end=xStr.length-1;
-  while(true){
-    if(xStr[end]!==xStr[start]||end===start||(xStr.length%2===0&&start+1===end)){
-      if(xStr[end]!==xStr[start]) return false;
+var isPalindrome = function (x) {
+  let result = true;
+  let xStr = x.toString();
+  if (x < 0) return false;
+  let start = 0,
+    end = xStr.length - 1;
+  while (true) {
+    if (
+      xStr[end] !== xStr[start] ||
+      end === start ||
+      (xStr.length % 2 === 0 && start + 1 === end)
+    ) {
+      if (xStr[end] !== xStr[start]) return false;
       break;
     }
     start++;
@@ -26,6 +30,5 @@
   }
   return result;
 };
-
 
 console.log(isPalindrome(1212));

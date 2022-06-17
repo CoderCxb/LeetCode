@@ -7,8 +7,6 @@
 
 // 假设你总是可以到达数组的最后一个位置。
 
- 
-
 // 示例 1:
 
 // 输入: [2,3,1,1,4]
@@ -20,27 +18,27 @@
  * @param {number[]} nums
  * @return {number}
  */
-var jump = function(nums) {
-  // 1. 记录上一次跳跃终点 当index<end时,steps不需要++
+var jump = function (nums) {
+  // 1. 记录步数
+  let steps = 0;
+  // 2. 记录步数对应的最大跳跃终点, 当index<end时,steps不需要++
   // 例如 当开始跳2步 因此 2前面的index步数都是1
-  let end=0;
-  // 2. 最远距离
-  let max=0;
-  // 3. 步数
-  let steps=0;
+  let end = 0;
+  // 3. 最远距离
+  let max = 0;
   // 4. 不包含length-1
-  for (let index = 0; index < nums.length-1; index++) {
+  for (let index = 0; index < nums.length - 1; index++) {
     // 5. 计算最远距离
-    max=Math.max(index+nums[index],max);
-    // 6. index达到上次跳跃的终点
-    if(index>=end){
-      // 7. 改变跳跃终点
-      end=max;
+    max = Math.max(index + nums[index], max);
+    // 6. index大于等于上次跳跃最大终点时, 说明再次进行跳跃了
+    if (index >= end) {
+      // 7. 记录每次跳跃的最大终点
+      end = max;
       // 8. 步数++
       steps++;
-    } 
+    }
   }
   return steps;
 };
 
-console.log(jump([2,3,1,1,4]));
+console.log(jump([2, 3, 1, 1, 4]));

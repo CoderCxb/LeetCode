@@ -8,22 +8,22 @@
 
 // 输入：s = " "
 // 输出：0
- 
+
 /**
  * @param {string} s
  * @return {number}
  */
-var lengthOfLastWord = function(s) {
+var lengthOfLastWord = function (s) {
   // 1. 先去除左右空格 再根据空格对字符串进行切割
-  let sArr=s.trim().split(' ');
-  // 2. 如果切割出来的长度为0 则直接返回0 
-  if(sArr.length==0) return 0;
+  let sArr = s.trim().split(" ");
+  // 2. 如果切割出来的长度为0 则直接返回0
+  if (sArr.length == 0) return 0;
   // 3. 获取最有一个单词
-  let lastWord = sArr[sArr.length-1];
+  let lastWord = sArr[sArr.length - 1];
   // 4. 遍历
   for (const c of lastWord) {
     // 5. 如果等于自身 则说明是数字 直接返回 0
-    if(+c===+c){
+    if (+c === +c) {
       return 0;
     }
   }
@@ -31,5 +31,5 @@ var lengthOfLastWord = function(s) {
   return lastWord.length;
 };
 
-console.log(lengthOfLastWord('Hello World'));
-console.log(lengthOfLastWord('a '));
+console.log(lengthOfLastWord("Hello World"));
+console.log(lengthOfLastWord("a "));

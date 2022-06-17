@@ -6,7 +6,7 @@
 // 输入：nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
 // 输出：[1,2,2,3,5,6]
 
-// 思路: 
+// 思路:
 // 刚开始的思路是,使用双指针，从头开始不断比较，将小的不断后nums1做push操作
 // 但是这样写需要记录很多东西 比较复杂
 
@@ -20,23 +20,19 @@
  * @param {number} n
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
-var merge = function(nums1, m, nums2, n) {
-  let maxIndex=m+n-1;
-  m--;
-  n--;
-  while(m>=0||n>=0){
-    if(m===-1){
-      nums1[maxIndex--]=nums2[n--];
-    }else if(n===-1){
-      nums1[maxIndex--]=nums1[m--]
-    }else if(nums1[m]>=nums2[n]){
-      nums1[maxIndex--]=nums1[m--];
-    }else{
-      nums1[maxIndex--]=nums2[n--];
+var merge = function (nums1, m, nums2, n) {
+  let len = m + n - 1;
+  let i1 = m - 1,
+    i2 = n - 1;
+  while (len >= 0) {
+    if (nums1[i1] >= nums2[i2] || nums2[i2] === undefined) {
+      nums1[len--] = nums1[i1--];
+    } else if (nums2[i2] >= nums1[i1] || nums1[i1] === undefined) {
+      nums1[len--] = nums2[i2--];
     }
   }
+  return nums1;
 };
 
-
-merge([1,5,8,9],4,[2,3,4,6,8],5);
-merge([],0,[1],1)
+console.log(merge([1, 5, 8, 9], 4, [2, 3, 4, 6, 8], 5));
+console.log(merge([], 0, [1], 1));

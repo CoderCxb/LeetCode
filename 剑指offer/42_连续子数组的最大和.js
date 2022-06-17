@@ -11,27 +11,36 @@
  * @param {number[]} nums
  * @return {number}
  */
-var maxSubArray = function(nums) {
+var maxSubArray = function (nums) {
   // 1. 初始化最大值
-  let max=-Infinity;
+  let max = -Infinity;
   // 2. 和
-  let sum=0;
+  let sum = 0;
   // 3. 遍历
   for (let index = 0; index < nums.length; index++) {
-    let num=nums[index];
+    let num = nums[index];
     // 4. 计算和
-    sum+=num;
+    sum += num;
     // 5. 比较 max sum 以及当前值
-    max=Math.max(max,sum,num);
+    max = Math.max(max, sum, num);
     // 6. sum<0，则重置sum
-    if(sum<0){
-      sum=0
+    if (sum < 0) {
+      sum = 0;
     }
   }
   return max;
 };
 
-console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4]));
-console.log(maxSubArray(
-  [1, -2, 3, 5, -2, 6, -1]
-  ));
+var maxSubArray = function (nums) {
+  if (!nums) return 0;
+  let max = Number.MIN_SAFE_INTEGER;
+  let preMax = Number.MIN_SAFE_INTEGER;
+  nums.forEach((num) => {
+    preMax = Math.max(preMax + num, num);
+    max = Math.max(max, preMax);
+  });
+  return max;
+};
+
+console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+console.log(maxSubArray([1, -2, 3, 5, -2, 6, -1]));

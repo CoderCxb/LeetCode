@@ -21,15 +21,15 @@
 // 核心思想：从左往右 计算以每一个元素为最后一个元素的数组的最大值
 // 即 preMax+x 和 x中的最大值
 function maxSubArray(nums) {
-	let max = nums[0]; // 最大值
-	let preMax = 0; // 遍历到的元素结尾的数组的最大值
-	for (const num of nums) {
-		// preMax+x和num 就可以获取到当前元素结尾的数组的最大值
-		preMax = Math.max(preMax + num, num);
-		// 存储最大值
-		max = Math.max(preMax, max);
-	}
-	return max;
+  let max = nums[0]; // 最大值
+  let preMax = 0; // 遍历到的元素结尾的数组的最大值
+  for (const num of nums) {
+    // preMax+x和num 就可以获取到当前元素结尾的数组的最大值
+    preMax = Math.max(preMax + num, num);
+    // 存储最大值
+    max = Math.max(preMax, max);
+  }
+  return max;
 }
 
 console.log(maxSubArray([2, -1, 3, -1])); // 4

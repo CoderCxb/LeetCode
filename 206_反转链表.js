@@ -27,6 +27,24 @@ var reverseList = function (head) {
 	return last;
 };
 
+var reverseList2 = function(head) {
+  let result = null;
+	// 工作节点
+  let workNode = head;
+	// 当工作节点存在
+  while(workNode){
+		// 存储下一个节点
+    let nextNode = workNode.next;
+		// 将工作节点添加到result前
+    workNode.next = result;
+		// 将当前节点设置为result
+    result = workNode;
+		// 将工作节点后移
+    workNode = nextNode;
+  }
+  return result;
+};
+
 let l = new ListNode(1);
 l.next = new ListNode(2);
 l.next.next = new ListNode(3);

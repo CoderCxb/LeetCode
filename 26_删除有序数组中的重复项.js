@@ -12,22 +12,22 @@
  * @return {number}
  */
 var removeDuplicates = function (nums) {
-	// 1. 特殊情况
-	if (nums.length === 0) return 0;
-	// 2. preIndex记录下标 preNum记录不重复的最后一个值
-	let preIndex = 0,
-		preNum = nums[0];
-	// 3. 循环
-	for (let index = 0; index < nums.length; index++) {
-		// 4. 不相等的时候
-		if (nums[index] !== preNum) {
-			// 5. 替换 nums[preIndex]的值
-			nums[++preIndex] = nums[index];
-			// 6. 更新最新的preNum
-			preNum = nums[index];
-		}
-	}
-	// 7. 返回 preIndex+1
-	return preIndex + 1;
+  // 1. 特殊情况
+  if (nums.length === 0) return 0;
+  // 2. preIndex记录下标 preNum记录不重复的最后一个值
+  let preIndex = 0,
+    preNum = nums[0];
+  // 3. 循环
+  for (let index = 0; index < nums.length; index++) {
+    // 4. 不相等的时候
+    if (nums[index] !== preNum) {
+      // 5. 替换 nums[preIndex]的值
+      nums[++preIndex] = nums[index];
+      // 6. 更新最新的preNum
+      preNum = nums[index];
+    }
+  }
+  // 7. 返回 preIndex+1
+  return preIndex + 1;
 };
 console.log(removeDuplicates([1, 1, 2, 2, 5, 6, 7, 8]));

@@ -17,30 +17,30 @@
  */
 // 思路: 遍历数组 确定元素所在行数 然后将元素放进二维数组
 var convert = function (s, numRows) {
-	// 1. 一行的时候直接返回
-	if (numRows === 1) return s;
-	// 2. 创建二维数组
-	let sArr = new Array();
-	for (let i = 0; i < numRows; i++) {
-		sArr.push([]);
-	}
-	// 3. 当前行数
-	let row = 0;
-	// 4. true则行数递增 false行数递减
-	let direction = true;
-	// 5. 遍历字符串
-	for (let index = 0; index < s.length; index++) {
-		// 6. 将字符添加到当前行数(row)对应的数组sArr[row]
-		sArr[row].push(s[index]);
-		// 7. 到底之后 改变方向(direction) 开始向上
-		if (row === numRows - 1) direction = false;
-		// 8. 回到0行(顶部) 改变方向(direction) 开始向下
-		if (row === 0) direction = true;
-		// 9. 改变行数
-		row = row + (direction ? 1 : -1);
-	}
-	// 10. 展开二维数组并转成字符串返回
-	return [].concat(...sArr).join('');
+  // 1. 一行的时候直接返回
+  if (numRows === 1) return s;
+  // 2. 创建二维数组
+  let sArr = new Array();
+  for (let i = 0; i < numRows; i++) {
+    sArr.push([]);
+  }
+  // 3. 当前行数
+  let row = 0;
+  // 4. true则行数递增 false行数递减
+  let direction = true;
+  // 5. 遍历字符串
+  for (let index = 0; index < s.length; index++) {
+    // 6. 将字符添加到当前行数(row)对应的数组sArr[row]
+    sArr[row].push(s[index]);
+    // 7. 到底之后 改变方向(direction) 开始向上
+    if (row === numRows - 1) direction = false;
+    // 8. 回到0行(顶部) 改变方向(direction) 开始向下
+    if (row === 0) direction = true;
+    // 9. 改变行数
+    row = row + (direction ? 1 : -1);
+  }
+  // 10. 展开二维数组并转成字符串返回
+  return [].concat(...sArr).join("");
 };
 
-console.log(convert('PAYPALISHIRING', 3));
+console.log(convert("PAYPALISHIRING", 3));
