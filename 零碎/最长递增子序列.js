@@ -16,7 +16,7 @@ function longestIncreasingSubsequence(arr) {
         stage[i] = [...stage[n], arr[i]];
       }
       // 存储最大递增子序列
-      if (stage[i].length > stage[n].length) {
+      if (stage[i].length > res.length) {
         res = stage[i];
       }
     }
@@ -37,3 +37,6 @@ function longestIncreasingSubsequence(arr) {
 // ]
 
 console.log(longestIncreasingSubsequence([1, 2, 3, 4, 1, 2, 5, 6]));
+
+
+console.log(longestIncreasingSubsequence(['d', 'e', 'b', 'f', 'h','j','i','l','c']));

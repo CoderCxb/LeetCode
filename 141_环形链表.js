@@ -9,8 +9,8 @@
 // 快慢指针:一个指针跑的快 一个指针跑的慢 如果碰到了 就说明有环
 
 function ListNode(val) {
-	this.val = val;
-	this.next = null;
+  this.val = val;
+  this.next = null;
 }
 
 /**
@@ -18,24 +18,24 @@ function ListNode(val) {
  * @return {boolean}
  */
 var hasCycle = function (head) {
-	// 1. 特殊情况
-	if (head === null) return false;
-	// 2. 初始化快慢指针 初始值是相等的
-	let slow = head,
-		fast = head;
-	// 3. 遍历 fast
-	// 因为fast走两步 因此需要确保fast.next不为null
-	while (fast != null && fast.next != null) {
-		// 4. slow走一步 fast走两步
-		slow = slow.next;
-		fast = fast.next.next;
-		// 5. 相等 存在环
-		if (slow === fast) {
-			return true;
-		}
-	}
-	// 6. 能出来 说明没有环
-	return false;
+  // 1. 特殊情况
+  if (head === null) return false;
+  // 2. 初始化快慢指针 初始值是相等的
+  let slow = head,
+    fast = head;
+  // 3. 遍历 fast
+  // 因为fast走两步 因此只需要确保fast.next不为null就可以了
+  while (fast != null && fast.next != null) {
+    // 4. slow走一步 fast走两步
+    slow = slow.next;
+    fast = fast.next.next;
+    // 5. 相等 存在环
+    if (slow === fast) {
+      return true;
+    }
+  }
+  // 6. 能出来 说明没有环
+  return false;
 };
 
 let node = new ListNode(3);

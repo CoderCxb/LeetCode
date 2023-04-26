@@ -14,10 +14,11 @@
  * @return {boolean}
  */
 var canJump = function (nums) {
-  // 1. 最大值
+  // 1. 最大距离
   let max = 0;
-  for (let index = 0; index < nums.length; index++) {
-    // 2. 最大值为 index+value和max中的大值
+  for (let index = 0; index < nums.length - 1; index++) {
+    console.log(index);
+    // 2. 最大距离为 index+value和max中的大值
     max = Math.max(index + nums[index], max);
     // 3. 最大值比下标还小 说明前面能跳的最后的 都没有超过这个index 所以不可能达到最后
     if (max <= index) {
@@ -25,8 +26,8 @@ var canJump = function (nums) {
     }
   }
   // 4. max到达最后一个下标
-  return max >= nums.length - 1;
+  return true;
 };
 
-console.log(canJump([3, 2, 1, 0, 4]));
+console.log(canJump([3, 2, 1, 1, 0]));
 // console.log(canJump([0]));
